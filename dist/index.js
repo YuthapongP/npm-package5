@@ -5,13 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 Object.defineProperty(exports, "LuckyAlphabet", {
   enumerable: true,
-  get: function get() {
+  get: function () {
     return _luckyAlphabet.LuckyAlphabet;
   }
 });
 Object.defineProperty(exports, "ProgressBar2", {
   enumerable: true,
-  get: function get() {
+  get: function () {
     return _progressBar.ProgressBar2;
   }
 });

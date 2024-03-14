@@ -1,58 +1,89 @@
 "use strict";
 
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.ProgressBar2 = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _styledComponents = _interopRequireWildcard(require("styled-components"));
-var _templateObject, _templateObject2;
-function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
-function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { "default": e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n["default"] = e, t && t.set(e, n), n; }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-var ProgressStyles = _styledComponents["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  ", "\n"])), function (_ref) {
-  var progresss = _ref.progresss;
-  return (0, _styledComponents.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    position: fixed;\n    width: 100vw;\n    /* background-color: transparent; */\n    .progress-bar2 {\n      position: absolute;\n      background-color: pink;\n      /* min-width: 50px; */\n      max-width: 95%;\n      height: 2px;\n      top: 0;\n      left: 0;\n      background: linear-gradient(\n        to right,\n        red ", "%,\n        rgba(128, 128, 128, 0.5) ", "%\n      );\n      transition: width 0.3s all;\n      width: 100%;\n      /* width: ", "vw; */\n      /* transition: width 0.3s; */\n    }\n    .progress-bar2 {\n      height: 1px;\n      width: 30px;\n      background-color: pink;\n    }\n    .progress-percentage {\n      background-color: white;\n      text-align: center;\n      position: absolute;\n      top: 0;\n      right: 2%;\n      box-shadow: 0px 0px 10px 3px rgba(128, 128, 128, 0.5);\n      width: 30px;\n      height: 20px;\n    }\n  "])), progresss, progresss, progresss);
-});
-var ProgressBar2 = exports.ProgressBar2 = function ProgressBar2() {
-  var _useState = (0, _react.useState)(0),
-    _useState2 = _slicedToArray(_useState, 2),
-    percentage = _useState2[0],
-    setPercentage = _useState2[1];
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+const ProgressStyles = _styledComponents.default.div`
+  ${_ref => {
+  let {
+    progresss
+  } = _ref;
+  return (0, _styledComponents.css)`
+    position: fixed;
+    width: 100vw;
+    /* background-color: transparent; */
+    .progress-bar2 {
+      position: absolute;
+      background-color: pink;
+      /* min-width: 50px; */
+      max-width: 95%;
+      height: 2px;
+      top: 0;
+      left: 0;
+      background: linear-gradient(
+        to right,
+        red ${progresss}%,
+        rgba(128, 128, 128, 0.5) ${progresss}%
+      );
+      transition: width 0.3s all;
+      width: 100%;
+      /* width: ${progresss}vw; */
+      /* transition: width 0.3s; */
+    }
+    .progress-bar2 {
+      height: 1px;
+      width: 30px;
+      background-color: pink;
+    }
+    .progress-percentage {
+      background-color: white;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      right: 2%;
+      box-shadow: 0px 0px 10px 3px rgba(128, 128, 128, 0.5);
+      width: 30px;
+      height: 20px;
+    }
+  `;
+}}
+`;
+const ProgressBar2 = () => {
+  const [percentage, setPercentage] = (0, _react.useState)(0);
   console.log(percentage);
-  var new_percentage = Math.floor(percentage);
-  var handleScroll = function handleScroll() {
-    var _document$documentEle = document.documentElement,
-      clientHeight = _document$documentEle.clientHeight,
-      scrollTop = _document$documentEle.scrollTop,
-      scrollHeight = _document$documentEle.scrollHeight;
-    var scrollToBottom = scrollHeight - clientHeight - scrollTop <= 100;
+  const new_percentage = Math.floor(percentage);
+  const handleScroll = () => {
+    const {
+      clientHeight,
+      scrollTop,
+      scrollHeight
+    } = document.documentElement;
+    const scrollToBottom = scrollHeight - clientHeight - scrollTop <= 100;
     console.log("clientHeight", clientHeight);
     console.log("scrollTop", scrollTop);
     console.log("scrollHeight", scrollHeight);
     console.log("scrollToBottom", scrollToBottom);
-    var scrollPercentage = scrollTop / (scrollHeight - clientHeight) * 100;
+    const scrollPercentage = scrollTop / (scrollHeight - clientHeight) * 100;
     setPercentage(scrollPercentage);
   };
-  (0, _react.useEffect)(function () {
+  (0, _react.useEffect)(() => {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
-    return function () {
+    return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  return /*#__PURE__*/_react["default"].createElement(ProgressStyles, {
+  return /*#__PURE__*/_react.default.createElement(ProgressStyles, {
     progresss: percentage
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "progress-bar2"
-  }), /*#__PURE__*/_react["default"].createElement("div", {
+  }), /*#__PURE__*/_react.default.createElement("div", {
     className: "progress-percentage"
   }, new_percentage));
 };
+exports.ProgressBar2 = ProgressBar2;

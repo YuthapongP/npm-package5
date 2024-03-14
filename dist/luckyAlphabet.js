@@ -4,11 +4,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.LuckyAlphabet = void 0;
-var LuckyAlphabet = exports.LuckyAlphabet = function LuckyAlphabet(props) {
+const LuckyAlphabet = props => {
   if (typeof props !== "string" || props.length === 0) {
     return "Invalid input";
   }
-  var randomIndex = Math.floor(Math.random() * props.length);
+  const randomIndex = Math.floor(Math.random() * props.length);
   return props[randomIndex];
 };
+exports.LuckyAlphabet = LuckyAlphabet;
 module.exports = LuckyAlphabet;

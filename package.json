@@ -2,10 +2,10 @@
   "name": "nicky-package5",
   "version": "1.0.3",
   "description": "nicky package",
-  "main": "dist/MyComponent.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel . --out-dir dist --extensions \".js,.jsx\" --ignore \"node_modules,./dist\""
+    "build": "babel src --out-dir dist --extensions \".js,.jsx\" --copy-files"
   },
   "repository": {
     "type": "git",

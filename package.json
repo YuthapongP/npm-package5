@@ -1,6 +1,6 @@
 {
   "name": "nicky-package5",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "nicky package",
   "main": "dist/MyComponent.js",
   "scripts": {
